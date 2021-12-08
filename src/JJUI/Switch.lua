@@ -8,7 +8,7 @@ local function createSelf()
 		Size = UDim2.new(0.3,0, 0.09,0);
 		Image = "rbxassetid://8206471480";
 		ImageColor3 = Color3.fromRGB(50, 150, 250);
-		AnchorPoint = Vector2.new(1, 0.5);
+		AnchorPoint = Vector2.new(0.5, 0.5);
 		BackgroundTransparency = 1;
 	})
 	template.Name = "template"
@@ -73,6 +73,7 @@ end
 
 function Switch.new(Name, Position, ColorsConfig, AnimationSpeed, Callback, StartBool)
 	assert(type(Name) == "string", "Name argument must be a string.")
+	assert(type(ColorsConfig) == "table", "ColorsConfig argument must be a table.")
 	assert(type(Callback) == "function", "Callback argument must be a function.")
 	
 	local self = setmetatable({

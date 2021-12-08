@@ -7,8 +7,10 @@ local function createSelf()
 	local btn = Create("TextButton", {
 		BackgroundColor3 = Color3.fromRGB(50,50,50);
         TextColor3 = Color3.fromRGB(255,255,255);
+        TextSize = 28;
 		Size = UDim2.new(0.66,0, 0.16,0);
 		Text = "Text";
+        AnchorPoint = Vector2.new(0.5, 0.5);
 	})
 	btn.Name = "template"
 	local uiCornerBtn = Create("UICorner", {
@@ -38,6 +40,7 @@ end
 
 function Button.new(Name, Position, ColorsConfig, Font, AnimationSpeed)
 	assert(type(Name) == "string", "Name argument must be a string.")
+    assert(type(ColorsConfig) == "table", "ColorsConfig argument must be a table.")
 
 	local self = setmetatable({
 		--// Colors and font

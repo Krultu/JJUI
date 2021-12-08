@@ -6,7 +6,8 @@ local function createSelf()
 	-- Template
 	local template = Create("Frame", {
 		BackgroundColor3 = Color3.fromRGB(90,90,90);
-		Size = UDim2.new(0.6,0, 0.06,0)
+		Size = UDim2.new(0.6,0, 0.06,0);
+		AnchorPoint = Vector2.new(.5, .5);
 	})
 	template.Name = "template"
 	local uiCornerTemplate = Create("UICorner", {
@@ -50,6 +51,7 @@ end
 
 function DragBar.new(Name, Position, ColorsConfig, StartProgress)
 	assert(type(Name) == "string", "Name argument must be a string.")
+	assert(type(ColorsConfig) == "table", "ColorsConfig argument must be a table.")
 
 	local self = setmetatable({
 		--// Colors
