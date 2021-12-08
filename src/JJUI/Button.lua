@@ -38,15 +38,19 @@ local function update(self)
     end
 end
 
-function Button.new(Name, Position, ColorsConfig, Font, AnimationSpeed)
+function Button.new(Name, Position, ColorsConfig, Font, AnimationSpeed, Callback)
 	assert(type(Name) == "string", "Name argument must be a string.")
     assert(type(ColorsConfig) == "table", "ColorsConfig argument must be a table.")
+    assert(type(Callback) == "function", "Callback argument must be a function.")
 
 	local self = setmetatable({
 		--// Colors and font
 		BgColor = ColorsConfig.Bg or Color3.fromRGB(50, 50, 50);
 		TxtColor = ColorsConfig.Txt or Color3.fromRGB(255, 255, 255);
         Font = Font or Enum.Font.GothamBold;
+
+        --// Callback
+        cb = Callback;
 
 		--// UI
 		ui = script.template:Clone();
@@ -61,6 +65,10 @@ function Button.new(Name, Position, ColorsConfig, Font, AnimationSpeed)
 	self.ui.Position = Position or UDim2.new(0,0,0,0)
 
 	--// connections
+    self.ui.MouseButton1Click:Connect(function()
+        self.cb()
+    end)
+
 	self.ui.MouseEnter:Connect(function()
 		self.hovering = true
 	end)
