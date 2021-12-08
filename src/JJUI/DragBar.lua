@@ -4,10 +4,12 @@ DragBar.__index = DragBar
 local Create = require(script.Parent.System.Create)
 local function createSelf()
 	-- Template
-	local template = Create("Frame", {
+	local template = Create("TextButton", {
 		BackgroundColor3 = Color3.fromRGB(90,90,90);
 		Size = UDim2.new(0.6,0, 0.06,0);
 		AnchorPoint = Vector2.new(.5, .5);
+		AutoButtonColor = false;
+		Text = "";
 	})
 	template.Name = "template"
 	local uiCornerTemplate = Create("UICorner", {
@@ -76,6 +78,10 @@ function DragBar.new(Name, Position, ColorsConfig, StartProgress)
 	--// connections
 	self.ui.btn.MouseButton1Down:Connect(function()
 		self.holding = true
+	end)
+
+	self.ui.MouseButton1Click:Connect(function()
+		update(self)
 	end)
 	
 	UIS.InputEnded:Connect(function(i)
