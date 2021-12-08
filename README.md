@@ -2,5 +2,5 @@
 ### A simple Roblox UI library.
 
 ## Features
-### - Drag bar
+#### - Drag bar
 ### - Switch button
