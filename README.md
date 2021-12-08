@@ -4,3 +4,4 @@
 ### Features
 ##### - Drag bar
 ##### - Switch button
+##### - Button with animated corners
