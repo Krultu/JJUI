@@ -21,20 +21,23 @@ end
 
 createSelf()
 
-local UIS = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
 
 local function update(self)
 	if self.hovering then
-        self.ui.UICorner.CornerRadius = UDim.new(0, 32)
+        local t = TweenService:Create(self.ui.UICorner, TweenInfo.new(self.anim_s), {CornerRadius = UDim.new(0,32)})
+        t:Play()
+        t.Completed:Wait()
     else
-        self.ui.UICorner.CornerRadius = UDim.new(0, 8)
+        local t = TweenService:Create(self.ui.UICorner, TweenInfo.new(self.anim_s), {CornerRadius = UDim.new(0,8)})
+        t:Play()
+        t.Completed:Wait()
     end
 end
 
-function Button.new(Name, Position, ColorsConfig, Font)
+function Button.new(Name, Position, ColorsConfig, Font, AnimationSpeed)
 	assert(type(Name) == "string", "Name argument must be a string.")
-	assert(type(ColorsConfig) == "table", "ColorsConfig argument must be a table.")
 
 	local self = setmetatable({
 		--// Colors and font
@@ -44,6 +47,7 @@ function Button.new(Name, Position, ColorsConfig, Font)
 
 		--// UI
 		ui = script.template:Clone();
+        anim_s = AnimationSpeed or .15;
         hovering = false;
 	}, Button)
 	

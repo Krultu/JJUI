@@ -73,10 +73,7 @@ end
 
 function Switch.new(Name, Position, ColorsConfig, AnimationSpeed, Callback, StartBool)
 	assert(type(Name) == "string", "Name argument must be a string.")
-	assert(type(ColorsConfig) == "table", "ColorsConfig argument must be a table.")
-	assert(type(AnimationSpeed) == "number", "AnimationSpeed argument must be a number.")
 	assert(type(Callback) == "function", "Callback argument must be a function.")
-	assert(type(StartBool) == "boolean", "StartBool argument must be a boolean.")
 	
 	local self = setmetatable({
 		--// Colors

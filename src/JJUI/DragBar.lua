@@ -50,8 +50,6 @@ end
 
 function DragBar.new(Name, Position, ColorsConfig, StartProgress)
 	assert(type(Name) == "string", "Name argument must be a string.")
-	assert(type(ColorsConfig) == "table", "ColorsConfig argument must be a table.")
-	assert(type(StartProgress) == "number", "StartProgress argument must be a number.")
 
 	local self = setmetatable({
 		--// Colors
