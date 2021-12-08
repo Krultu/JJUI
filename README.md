@@ -1,6 +1,6 @@
 # JJUI
-### A simple Roblox UI library.
+#### A simple Roblox UI library.
 
-## Features
-#### - Drag bar
-### - Switch button
+### Features
+##### - Drag bar
+##### - Switch button
