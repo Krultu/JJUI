@@ -1,4 +1,5 @@
 local Switch = {}
+Switch.__index = Switch
 
 local Create = require(script.Parent.System.Create)
 local function createSelf()
@@ -116,6 +117,18 @@ end
 
 function Switch:GetCallback()
 	return self.cb
+end
+
+function Switch:SetPosition(pos)
+	self.ui.Position = pos
+end
+
+function Switch:SetParent(p)
+	self.ui.Parent = p
+end
+
+function Switch:SetSize(s)
+	self.ui.Size = s
 end
 
 function Switch:Destroy()

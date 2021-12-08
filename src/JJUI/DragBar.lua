@@ -1,4 +1,5 @@
 local DragBar = {}
+DragBar.__index = DragBar
 
 local Create = require(script.Parent.System.Create)
 local function createSelf()
@@ -94,6 +95,18 @@ end
 
 function DragBar:GetProgress()
 	return self.progress
+end
+
+function DragBar:SetPosition(pos)
+	self.ui.Position = pos
+end
+
+function DragBar:SetParent(p)
+	self.ui.Parent = p
+end
+
+function DragBar:SetSize(s)
+	self.ui.Size = s
 end
 
 function DragBar:Destroy()
