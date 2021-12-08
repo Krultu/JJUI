@@ -113,10 +113,6 @@ function Switch:GetToggled()
 	return self.Toggled
 end
 
-function Switch:GetCallback()
-	return self.cb
-end
-
 function Switch:SetPosition(pos)
 	self.ui.Position = pos
 end

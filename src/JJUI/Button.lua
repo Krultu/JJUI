@@ -84,10 +84,6 @@ function Button.new(Name, Position, ColorsConfig, Font, AnimationSpeed, Callback
 	return self
 end
 
-function Button:GetProgress()
-	return self.progress
-end
-
 function Button:SetPosition(pos)
 	self.ui.Position = pos
 end
