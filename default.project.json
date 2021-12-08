@@ -1,0 +1,12 @@
+{
+  "name": "JJUI",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "JJUI": {
+        "$path": "src/JJUI"
+      }
+    }
+  }
+}
