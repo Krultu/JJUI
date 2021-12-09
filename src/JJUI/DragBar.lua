@@ -21,8 +21,9 @@ local function createSelf()
 	local btn = Create("TextButton", {
 		BackgroundColor3 = Color3.fromRGB(50,50,50);
 		Size = UDim2.new(0.05,0, 1.75,0);
-		Position = UDim2.new(0,0, -0.383,0);
+		Position = UDim2.new(0,0, .5,0);
 		Text = "";
+		AnchorPoint = Vector2.new(.5, .5);
 	})
 	btn.Name = "btn"
 	local uiCornerBtn = Create("UICorner", {
@@ -40,15 +41,15 @@ local UIS = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 
 local function reverseUpdate(self)
-	self.ui.btn.Position = UDim2.new(self.progress, 0, -0.383, 0)
+	self.ui.btn.Position = UDim2.new(self.progress, 0, .5, 0)
 end
 
 local function update(self)
 	local mousePos = UIS:GetMouseLocation()
 	local relPos = mousePos - self.ui.AbsolutePosition
-	local percent = math.clamp(relPos.X/self.ui.AbsoluteSize.X, 0, .95)
-	self.ui.btn.Position = UDim2.new(percent, 0, -0.383, 0)
-	self.progress = percent > 0 and percent+.05 or percent
+	local percent = math.clamp(relPos.X/self.ui.AbsoluteSize.X, 0, 1)
+	self.ui.btn.Position = UDim2.new(percent, 0, .5, 0)
+	self.progress = percent
 end
 
 function DragBar.new(Name, Position, ColorsConfig, StartProgress)

@@ -25,7 +25,7 @@ local function createSelf()
 		Size = UDim2.new(1,0, 0.9,0);
 		Position = UDim2.new(0.5,0, 0.5,0);
 		Image = "rbxassetid://8206467461";
-		AnchorPoint = Vector2.new(0, 0.5);
+		AnchorPoint = Vector2.new(1, 0.5);
 		BackgroundTransparency = 1;
 	})
 	circle.Name = "Circle"
