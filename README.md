@@ -19,4 +19,4 @@ local JJUI = require(game:GetService("ReplicatedStorage").JJUI)
 local Switch = JJUI.Switch.new()
 ```
 
-**Ready to get started?** Check out the **[docs here](https://oc-ob.github.io/JJUI/)!
+**Ready to get started?** Check out the **[docs here](https://oc-ob.github.io/JJUI/)**!
