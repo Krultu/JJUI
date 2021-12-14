@@ -19,6 +19,4 @@ local JJUI = require(game:GetService("ReplicatedStorage").JJUI)
 local Switch = JJUI.Switch.new()
 ```
 
-<div align="center">
 **Ready to get started?** Check out the **[docs here](https://oc-ob.github.io/JJUI/)**!
-</div>
