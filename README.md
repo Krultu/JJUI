@@ -2,7 +2,7 @@
 
 <div align="center">
   
- ## 📖 [Documentation](https://oc-ob.github.io/JJUI/)
+ ## 📖 [Documentation](https://oc-ob.github.io/JJUI/) 📖
   
 </div>
   
