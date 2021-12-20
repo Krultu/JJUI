@@ -109,10 +109,12 @@ function Switch.new(Name, Position, ColorsConfig, AnimationSpeed, Callback, Star
 	return self
 end
 
+--// From class
 function Switch:GetToggled()
 	return self.Toggled
 end
 
+--// From instance
 function Switch:SetPosition(pos)
 	self.ui.Position = pos
 end

@@ -84,6 +84,7 @@ function Button.new(Name, Position, ColorsConfig, Font, AnimationSpeed, Callback
 	return self
 end
 
+--// From instance
 function Button:SetPosition(pos)
 	self.ui.Position = pos
 end

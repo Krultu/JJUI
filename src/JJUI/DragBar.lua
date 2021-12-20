@@ -100,10 +100,12 @@ function DragBar.new(Name, Position, ColorsConfig, StartProgress)
 	return self
 end
 
+--// From class
 function DragBar:GetProgress()
 	return self.progress
 end
 
+--// From instance
 function DragBar:SetPosition(pos)
 	self.ui.Position = pos
 end
