@@ -13,6 +13,7 @@ nav:
    - API:
      - Button: api/button.md
      - Drag bar: api/dragbar.md
+     - Radial progress: api/radialprogress.md
      - Switch: api/switch.md
 
  - Changelog: changelog.md
