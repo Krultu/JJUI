@@ -5,12 +5,39 @@ local Create = require(script.Parent.System.Create)
 local function createSelf()
     -- Frame
 	local frame = Create("Frame", {
+        AnchorPoint = UDim.new(.5, .5);
 		BackgroundTransparency = 1;
-		Size = UDim2.new(0.1,0, 0.175,0);
-        AnchorPoint = Vector2.new(0.5, 0.5);
+		Size = UDim2.new(0.1,0, 0.162,0);
 	})
 	frame.Name = "template"
 	frame.Parent = script
+
+    -- Left
+    local leftimg = Create("ImageLabel", {
+        BackgroundTransparency = 1;
+        Position = UDim2.new(0,0, 0,0);
+        Size = UDim2.new(.5,0, 1,0);
+        ZIndex = 2;
+        Image = "rbxassetid://8295839524";
+        ImageColor3 = Color3.fromRGB(50,50,50);
+        ImageRectSize = UDim.new(128,256);
+    })
+    leftimg.Name = "Left"
+    leftimg.Parent = frame
+
+    -- Right
+    local rightimg = Create("ImageLabel", {
+        BackgroundTransparency = 1;
+        Position = UDim2.new(.5,0, 0,0);
+        Size = UDim2.new(.5,0, 1,0);
+        ZIndex = 1;
+        Image = "rbxassetid://8295839524";
+        ImageColor3 = Color3.fromRGB(50,50,50);
+        ImageRectOffset = UDim.new(128,0);
+        ImageRectSize = UDim.new(128,256);
+    })
+    rightimg.Name = "Right"
+    rightimg.Parent = frame
 
 
 end
