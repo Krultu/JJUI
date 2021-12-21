@@ -11,8 +11,8 @@ nav:
    - Introduction: index.md
    - Installation: installation.md
    - API:
-     - Button: api/button.md
      - Drag bar: api/dragbar.md
+     - Notification: api/notification.md
      - Radial progress: api/radialprogress.md
      - Switch: api/switch.md
 

@@ -359,8 +359,8 @@
   
   
     <li class="md-nav__item">
-      <a href="api/button/" class="md-nav__link">
-        Button
+      <a href="api/dragbar/" class="md-nav__link">
+        Drag bar
       </a>
     </li>
   
@@ -373,8 +373,8 @@
   
   
     <li class="md-nav__item">
-      <a href="api/dragbar/" class="md-nav__link">
-        Drag bar
+      <a href="api/notification/" class="md-nav__link">
+        Notification
       </a>
     </li>
   
@@ -454,13 +454,15 @@
 
 <p>JJUI is a module that allows fast UI components(such as switches, drag bars, etc...) construction.</p>
 <p>JJUI supports PC and mobile. (Not tested in console yet)</p>
-<p>You can all components <a href="api/button/">here</a>.</p>
+<p>You can all components <a href="api/dragbar/">here</a>.</p>
 <p>Creating a component is as simple as:
 <div class="highlight"><pre><span></span><code><span class="c1">-- In a local script, assuming JJUI is inside Replicated Storage</span>
 <span class="kd">local</span> <span class="n">JJUI</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">).</span><span class="n">JJUI</span><span class="p">)</span>
 
 <span class="c1">-- This can be done with any component, just use the same syntax &quot;JJUI.ComponentName&quot;</span>
-<span class="kd">local</span> <span class="n">Switch</span> <span class="o">=</span> <span class="n">JJUI</span><span class="p">.</span><span class="n">Switch</span><span class="p">.</span><span class="n">new</span><span class="p">()</span>
+<span class="kd">local</span> <span class="n">Switch</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">JJUI</span><span class="p">.</span><span class="n">Switch</span><span class="p">)</span>
+
+<span class="kd">local</span> <span class="n">MyCoolSwitch</span> <span class="o">=</span> <span class="n">Switch</span><span class="p">.</span><span class="n">new</span><span class="p">()</span>
 </code></pre></div></p>
 <p>Check the installation steps to continue.</p>
 
