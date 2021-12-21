@@ -82,6 +82,10 @@ function Switch:GetToggled()
 	return self.Toggled
 end
 
+function Switch:Toggle()
+	self.Toggled = not self.Toggled
+end
+
 --// From instance
 function Switch:SetPosition(pos)
 	self.ui.Position = pos
