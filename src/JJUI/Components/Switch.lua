@@ -1,43 +1,11 @@
 local Switch = {}
 Switch.__index = Switch
 
-local Create = require(script.Parent.System.Create)
+local Create = require(script.Parent.Parent.System.Create)
 local function createSelf()
-	-- Template
-	local template = Create("ImageButton", {
-		Size = UDim2.new(0.3,0, 0.09,0);
-		Image = "rbxassetid://8206471480";
-		ImageColor3 = Color3.fromRGB(50, 150, 250);
-		AnchorPoint = Vector2.new(0.5, 0.5);
-		BackgroundTransparency = 1;
-	})
-	template.Name = "template"
-	
-	local aspectRatioTemplate = Create("UIAspectRatioConstraint",{
-		AspectRatio = 2;
-		AspectType = Enum.AspectType.ScaleWithParentSize;
-		DominantAxis = Enum.DominantAxis.Height;
-	})
-	aspectRatioTemplate.Parent = template
-
-	-- Circle
-	local circle = Create("ImageLabel", {
-		Size = UDim2.new(1,0, 0.9,0);
-		Position = UDim2.new(0.5,0, 0.5,0);
-		Image = "rbxassetid://8206467461";
-		AnchorPoint = Vector2.new(1, 0.5);
-		BackgroundTransparency = 1;
-	})
-	circle.Name = "Circle"
-	local aspectRatioCircle = Create("UIAspectRatioConstraint",{
-		AspectRatio = 1;
-		AspectType = Enum.AspectType.ScaleWithParentSize;
-		DominantAxis = Enum.DominantAxis.Height;
-	})
-	aspectRatioCircle.Parent = circle
-
-	circle.Parent = template
-	template.Parent = script
+	local build = require(script.Parent.Parent.System.BuildInfo.Switch)
+	local result = build(script)
+	result.Name = "template"
 end
 
 createSelf()

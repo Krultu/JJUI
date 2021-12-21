@@ -1,38 +1,23 @@
 local DragBar = {}
 DragBar.__index = DragBar
 
-local Create = require(script.Parent.System.Create)
+local Create = require(script.Parent.Parent.System.Create)
 local function createSelf()
-	-- Template
-	local template = Create("TextButton", {
-		BackgroundColor3 = Color3.fromRGB(90,90,90);
-		Size = UDim2.new(0.6,0, 0.06,0);
-		AnchorPoint = Vector2.new(.5, .5);
-		AutoButtonColor = false;
-		Text = "";
+	local build = require(script.Parent.Parent.System.BuildInfo.DragBar)
+	local result = build(script)
+
+	local uicorner1 = Create("UICorner", {
+		CornerRadius = UDim.new(0,16);
 	})
-	template.Name = "template"
-	local uiCornerTemplate = Create("UICorner", {
-		CornerRadius = UDim.new(0, 16);
+
+	local uicorner2 = Create("UICorner", {
+		CornerRadius = UDim.new(0,16);
 	})
-	uiCornerTemplate.Parent = template
-	
-	-- Btn
-	local btn = Create("TextButton", {
-		BackgroundColor3 = Color3.fromRGB(50,50,50);
-		Size = UDim2.new(0.05,0, 1.75,0);
-		Position = UDim2.new(0,0, .5,0);
-		Text = "";
-		AnchorPoint = Vector2.new(.5, .5);
-	})
-	btn.Name = "btn"
-	local uiCornerBtn = Create("UICorner", {
-		CornerRadius = UDim.new(0, 16);
-	})
-	uiCornerBtn.Parent = btn
-	
-	btn.Parent = template
-	template.Parent = script
+
+	uicorner1.Parent = result
+	uicorner2.Parent = result.btn
+
+	result.Name = "template"
 end
 
 createSelf()

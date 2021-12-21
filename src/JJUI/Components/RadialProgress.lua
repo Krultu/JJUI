@@ -1,86 +1,11 @@
 local RadialProgress = {}
 RadialProgress.__index = RadialProgress
 
-local Create = require(script.Parent.System.Create)
+local Create = require(script.Parent.Parent.System.Create)
 local function createSelf()
-    -- Frame
-	local frame = Create("Frame", {
-        AnchorPoint = Vector2.new(.5, .5);
-		BackgroundTransparency = 1;
-		Size = UDim2.new(0.113,0, 0.184,0);
-	})
-	frame.Name = "template"
-    --frame.Parent = script
-
-    -- Left
-    local leftimg = Create("ImageLabel", {
-        BackgroundTransparency = 1;
-        Position = UDim2.new(0,0, 0,0);
-        Size = UDim2.new(.5,0, 1,0);
-        ZIndex = 2;
-        Image = "rbxassetid://8295839524";
-        ImageColor3 = Color3.fromRGB(50,50,50);
-        ImageRectSize = Vector2.new(128,256);
-        ScaleType = Enum.ScaleType.Fit;
-    })
-    leftimg.Name = "Left"
-    leftimg.Parent = frame
-
-    local leftsubframe = Create("Frame", {
-        AnchorPoint = Vector2.new(.5, .5);
-        BackgroundTransparency = 1;
-        Position = UDim2.new(1,0, .5,0);
-        Size = UDim2.new(2,0, 1,0);
-    })
-    leftsubframe.Parent = leftimg
-
-    local leftsubframe_subimg = Create("ImageLabel", {
-        BackgroundTransparency = 1;
-        Position = UDim2.new(0,0, 0,0);
-        Size = UDim2.new(.5,0, 1,0);
-        Image = "rbxassetid://8295840780";
-        ImageRectSize = Vector2.new(128,256);
-        ImageColor3 = Color3.fromRGB(55,155,255);
-        ScaleType = Enum.ScaleType.Fit;
-    })
-    leftsubframe_subimg.Parent = leftsubframe
-
-    -- Right
-    local rightimg = Create("ImageLabel", {
-        BackgroundTransparency = 1;
-        Position = UDim2.new(.5,0, 0,0);
-        Size = UDim2.new(.5,0, 1,0);
-        ZIndex = 1;
-        Image = "rbxassetid://8295839524";
-        ImageColor3 = Color3.fromRGB(50,50,50);
-        ImageRectOffset = Vector2.new(128,0);
-        ImageRectSize = Vector2.new(128,256);
-        ScaleType = Enum.ScaleType.Fit;
-    })
-    rightimg.Name = "Right"
-    rightimg.Parent = frame
-
-    local rightsubframe = Create("Frame", {
-        AnchorPoint = Vector2.new(.5, .5);
-        BackgroundTransparency = 1;
-        Position = UDim2.new(0,0, .5,0);
-        Size = UDim2.new(2,0, 1,0);
-    })
-    rightsubframe.Parent = rightimg
-
-    local rightsubframe_subimg = Create("ImageLabel", {
-        BackgroundTransparency = 1;
-        Position = UDim2.new(.5,0, 0,0);
-        Size = UDim2.new(.5,0, 1,0);
-        Image = "rbxassetid://8295840780";
-        ImageRectOffset = Vector2.new(128,0);
-        ImageRectSize = Vector2.new(128,256);
-        ImageColor3 = Color3.fromRGB(55,155,255);
-        ScaleType = Enum.ScaleType.Fit;
-    })
-    rightsubframe_subimg.Parent = rightsubframe
-
-    frame.Parent = script
+    local build = require(script.Parent.Parent.System.BuildInfo.RadialProgress)
+	local result = build(script)
+	result.Name = "template"
 end
 
 createSelf()
