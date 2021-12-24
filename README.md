@@ -16,7 +16,9 @@ Creating a component is as simple as:
 local JJUI = require(game:GetService("ReplicatedStorage").JJUI)
 
 -- This can be done with any component, just use the same syntax "JJUI.ComponentName"
-local Switch = JJUI.Switch.new()
+local Switch = require(JJUI.Switch)
+
+local MyCoolSwitch = Switch.new()
 ```
 
 **Ready to get started?** Check out the **[docs here](https://oc-ob.github.io/JJUI/)**!
