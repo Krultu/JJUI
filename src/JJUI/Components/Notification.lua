@@ -19,7 +19,7 @@ createSelf()
 
 local TweenService = game:GetService("TweenService")
 
-function Notification.new(Title, Content, Parent, ColorsConfig)
+function Notification.new(Title, Content, Duration, ColorsConfig)
 	assert(type(Title) == "string", "Title argument must be a string.")
     assert(type(Content) == "string", "Content argument must be a string.")
 
@@ -33,8 +33,20 @@ function Notification.new(Title, Content, Parent, ColorsConfig)
 	}, Notification)
 	
 	--// Setup
+	if not game.Players.LocalPlayer.PlayerGui:FindFirstChild("NOTIFICATION_UI") then
+		-- local sg = Create("ScreenGui", {
+		-- 	Name = "NOTIFICATION_UI",
+		-- 	Parent = game.Players.LocalPlayer.PlayerGui
+		-- })
+
+		-- local 
+
+		local build = require(script.Parent.Parent.System.BuildInfo.Notification.UI)
+		local r = build(game.Players.LocalPlayer.PlayerGui)
+	end
+
 	self.ui.Name = "NOTIFICATION"
-	self.ui.Parent = Parent
+	self.ui.Parent = game.Players.LocalPlayer.PlayerGui.NOTIFICATION_UI.F
 	self.ui.Container.ImageColor3 = self.BgColor
 	self.ui.Container.Body.Container.Content.TextColor3 = self.TxtColor
 	self.ui.Position = UDim2.new(0.5,0, 0,-100)
@@ -42,12 +54,15 @@ function Notification.new(Title, Content, Parent, ColorsConfig)
 	self.ui.Container.Body.Container.Content.Text = Content
 	self.ui.Container.Top.Title.Text = Title
 
-	local t = TweenService:Create(self.ui, TweenInfo.new(.15), {Position = UDim2.new(0.5,0, 0,4)})
+	self.ui.Container.Size = UDim2.new(1,0, 0,math.floor(self.ui.Container.Body.Container.Content.TextBounds.Y) + 56)
+	self.ui.Size = UDim2.new(0.45,0, 0,0)
+
+	local t = TweenService:Create(self.ui, TweenInfo.new(.15), {Size = UDim2.new(0.45,0, 0,self.ui.Container.Size.Y.Offset)})
 	t:Play()
 	self.ui.Sound:Play()
 	t.Completed:Wait()
-	wait(3)
-	local t2 = TweenService:Create(self.ui, TweenInfo.new(.15), {Position = UDim2.new(0.5,0, 0,-100)})
+	wait(Duration or 3)
+	local t2 = TweenService:Create(self.ui, TweenInfo.new(.15), {Size = UDim2.new(0.5,0, 0,0)})
 	t2:Play()
 	t2.Completed:Wait()
 
