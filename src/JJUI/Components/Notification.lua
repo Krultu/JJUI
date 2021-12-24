@@ -19,14 +19,11 @@ createSelf()
 
 local TweenService = game:GetService("TweenService")
 
-function Notification.new(Title, Content, Duration, ColorsConfig)
-	assert(type(Title) == "string", "Title argument must be a string.")
-    assert(type(Content) == "string", "Content argument must be a string.")
-
+function Notification.new(Title:string, Content:string, Duration:number?, ColorsConfig:table?)
 	local self = setmetatable({
 		--// Colors and font
-		BgColor = ColorsConfig.Bg or Color3.fromRGB(0,0,0);
-		TxtColor = ColorsConfig.Txt or Color3.fromRGB(255, 255, 255);
+		BgColor = ColorsConfig ~= nil and ColorsConfig.Bg or Color3.fromRGB(0,0,0);
+		TxtColor = ColorsConfig ~= nil and ColorsConfig.Txt or Color3.fromRGB(255, 255, 255);
 
 		--// UI
 		ui = script.template:Clone();

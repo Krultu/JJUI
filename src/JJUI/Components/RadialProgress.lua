@@ -30,14 +30,11 @@ local function update(self)
 	end
 end
 
-function RadialProgress.new(Name, Position, ColorsConfig, AnimationSpeed)
-	assert(type(Name) == "string", "Name argument must be a string.")
-    assert(type(ColorsConfig) == "table", "ColorsConfig argument must be a table.")
-
+function RadialProgress.new(Name:string, Position:UDim2?, ColorsConfig:table?, AnimationSpeed:number?)
 	local self = setmetatable({
 		--// Colors
-		BgColor = ColorsConfig.Bg or Color3.fromRGB(50, 50, 50);
-        BarColor = ColorsConfig.Bar or Color3.fromRGB(55,155,255);
+		BgColor = ColorsConfig ~= nil and ColorsConfig.Bg or Color3.fromRGB(50, 50, 50);
+        BarColor = ColorsConfig ~= nil and ColorsConfig.Bar or Color3.fromRGB(55,155,255);
 
 		--// UI
 		ui = script.template:Clone();

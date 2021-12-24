@@ -39,15 +39,14 @@ local function tupdate(self)
 	ctween:Play()
 end
 
-function Switch.new(Name, Position, ColorsConfig, AnimationSpeed, Callback, StartBool)
-	assert(type(Name) == "string", "Name argument must be a string.")
-	assert(type(ColorsConfig) == "table", "ColorsConfig argument must be a table.")
+function Switch.new(Name:string, Callback, Position:UDim2?, ColorsConfig:table?, AnimationSpeed:number?, StartBool:boolean?)
+	-- I didn't find how to remove this since you can't use "function" type in a function parsing in Luau since it's also a keyword
 	assert(type(Callback) == "function", "Callback argument must be a function.")
 	
 	local self = setmetatable({
 		--// Colors
-		BgColorToggled = ColorsConfig.T or Color3.fromRGB(50, 150, 250);
-		BgColorNotToggled = ColorsConfig.F or Color3.fromRGB(50, 50, 50);
+		BgColorToggled = ColorsConfig ~= nil and ColorsConfig.T or Color3.fromRGB(50, 150, 250);
+		BgColorNotToggled = ColorsConfig ~= nil and ColorsConfig.F or Color3.fromRGB(50, 50, 50);
 		
 		--// Callback
 		cb = Callback;

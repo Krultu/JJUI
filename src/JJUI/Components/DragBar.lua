@@ -6,17 +6,6 @@ local function createSelf()
 	local build = require(script.Parent.Parent.System.BuildInfo.DragBar)
 	local result = build(script)
 
-	local uicorner1 = Create("UICorner", {
-		CornerRadius = UDim.new(0,16);
-	})
-
-	local uicorner2 = Create("UICorner", {
-		CornerRadius = UDim.new(0,16);
-	})
-
-	uicorner1.Parent = result
-	uicorner2.Parent = result.btn
-
 	result.Name = "template"
 end
 
@@ -37,14 +26,11 @@ local function update(self)
 	self.progress = percent
 end
 
-function DragBar.new(Name, Position, ColorsConfig, StartProgress)
-	assert(type(Name) == "string", "Name argument must be a string.")
-	assert(type(ColorsConfig) == "table", "ColorsConfig argument must be a table.")
-
+function DragBar.new(Name:string, Position:UDim2?, ColorsConfig:table?, StartProgress:number?)
 	local self = setmetatable({
 		--// Colors
-		BgColor = ColorsConfig.Bg or Color3.fromRGB(90, 90, 90);
-		BtnColor = ColorsConfig.Btn or Color3.fromRGB(50, 50, 50);
+		BgColor = ColorsConfig ~= nil and ColorsConfig.Bg or Color3.fromRGB(90, 90, 90);
+		BtnColor = ColorsConfig ~= nil and ColorsConfig.Btn or Color3.fromRGB(50, 50, 50);
 
 		--// Progress
 		progress = StartProgress or 0;
@@ -86,6 +72,11 @@ function DragBar.new(Name, Position, ColorsConfig, StartProgress)
 end
 
 --// From class
+function DragBar:SetProgress(p:number)
+	self.progress = p
+	reverseUpdate()
+end
+
 function DragBar:GetProgress()
 	return self.progress
 end
