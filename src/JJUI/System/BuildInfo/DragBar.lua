@@ -67,6 +67,7 @@ local root = {
 				BackgroundColor3 = Color3.new(10/51,10/51,10/51);
 				BorderSizePixel = 0;
 				SliceCenter = Rect.new(Vector2.new(512,512),Vector2.new(512,512));
+				ZIndex = 5;
 			};
 			Children = {};
 		};
