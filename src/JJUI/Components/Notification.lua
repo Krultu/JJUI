@@ -51,9 +51,13 @@ function Notification.new(Title:string, Content:string, Duration:number?, Colors
 	self.ui.Container.Body.Container.Content.Text = Content
 	self.ui.Container.Top.Title.Text = Title
 
+	self.ui.Visible = false
+	self.ui.Container.Size = UDim2.new(1,0, 0,1000)
+
 	self.ui.Container.Size = UDim2.new(1,0, 0,math.floor(self.ui.Container.Body.Container.Content.TextBounds.Y) + 56)
 	self.ui.Size = UDim2.new(0.45,0, 0,0)
 
+	self.ui.Visible = true
 	local t = TweenService:Create(self.ui, TweenInfo.new(.15), {Size = UDim2.new(0.45,0, 0,self.ui.Container.Size.Y.Offset)})
 	t:Play()
 	self.ui.Sound:Play()
