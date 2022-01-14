@@ -1,8 +1,8 @@
-![image](https://raw.githubusercontent.com/oc-ob/JJUI/master/.github/images/jjui-banner.png)
+![image](https://raw.githubusercontent.com/krultu/JJUI/master/.github/images/jjui-banner.png)
 
 <div align="center">
   
- ## 📖 [Documentation](https://oc-ob.github.io/JJUI/) 📖
+ ## 📖 [Documentation](https://krultu.github.io/JJUI/) 📖
   
 </div>
   
@@ -21,4 +21,4 @@ local Switch = require(JJUI.Switch)
 local MyCoolSwitch = Switch.new()
 ```
 
-**Ready to get started?** Check out the **[docs here](https://oc-ob.github.io/JJUI/)**!
+**Ready to get started?** Check out the **[docs here](https://krultu.github.io/JJUI/)**!
